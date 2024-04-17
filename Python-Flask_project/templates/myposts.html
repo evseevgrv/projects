@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ХелпИВР</title>
+    <link rel="shortcut icon" href="/static/img/c.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/static/css/nav.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="/static/css/myposts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css..">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h3 class="h-back"><a href="/" class="hr-back"><i class="fas fa-arrow-circle-left"></i> Вернуться на главную страницу</a></h3>
+    
+
+        <section class="">
+
+            {% for p in post %}
+
+                <div class="post forme">
+                    <div class="posttype">Предложение</div>
+
+                    <div class="posttype">{{ p[2] }} {{ p[3] }}</div>
+
+                        <div class="postname"><h3>{{ p[5] }}</h3></div>
+
+                        <hr>
+
+                        <div class="postrequied">
+                            <p class="posttype">Сфера задачи</p>
+                            <p>{{ p[4] }}</p>
+                        </div>
+
+                        <hr>
+
+                        <div class="postrequied">
+                            <p class="posttype">Описание задачи</p>
+                            <p>{{ p[7] }}</p>
+                        </div>
+
+                        <hr>
+
+                        <div class="postpurpose">
+                            <p class="posttype">Требования</p>
+                            {{ p[6] }}
+                        </div>
+
+                        <hr>
+
+                        <div class="postauthor">{{ p[1] }} {{ p[0] }}</div>
+
+                        <div class="postcontacts">
+                            <p class="posttype">Контакты</p>
+
+                            <div class="email">
+                                <i class="fas fa-envelope"></i>
+                                {{ p[10] }}
+                            </div>
+
+                            <div class="email">
+                                <i class="fab fa-vk"></i>
+                                {{ p[8] }}
+                            </div> 
+                            <!-- <a href="{{ p[8] }}" class="posthref">
+                                <i class="fab fa-vk"></i>
+                            </a> -->
+
+                            <!-- <a href="{{ p[10] }}">
+                                <i class="fab fa-telegram-plane"></i>
+                            </a> -->
+                            
+                            <div class="email">
+                                <i class="fab fa-telegram-plane"></i>
+                                {{ p[9] }}
+                            </div>
+
+                        </div>
+
+                    <div class="b">
+                        <a href="/update/post/{{ p[11] }}" class="myp-b">Редактировать</a>
+ 
+                        <a href="/delete/{{ p[11] }}" class="myp-b" onclick="return confirm('Вы уверены, что хотите удалить этот пост?');">Удалить</a>
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+            {% for v in vacancy %}
+                
+                <div class="post me">
+                    
+                    <div class="posttype">Резюме</div>
+
+                    <div class="postname"><h3>{{ v[2] }}</h3></div>
+                        <hr>
+                        <div class="postrequied">
+                            <p class="posttype">Описание способностей</p>
+                            <p>{{ v[3] }}</p>
+                        </div>
+                        <hr>
+                        <div class="postauthor">{{ v[1] }} {{ v[0] }}</div>
+                        <div class="postcontacts">
+                            <p class="posttype">Контакты</p>
+
+                            <div class="email">
+                                <i class="fas fa-envelope"></i>
+                                {{ v[6] }}
+                            </div>
+
+                            <!-- <a href="{{ v[4] }}" class="posthref">
+                                <i class="fab fa-vk"></i>
+                            </a> -->
+                            <div class="email">
+                                <i class="fab fa-vk"></i>
+                                {{ v[4] }}
+                            </div> 
+
+                            <div class="email">
+                                <i class="fab fa-telegram-plane"></i>
+                                {{ v[5] }}
+                            </div>
+
+                        </div>
+
+                    <div class="b">
+                        <a href="/update/vacancy/{{ v[7] }}" class="myp-b">Редактировать</a>
+
+                        <a href="/delete/{{ v[7] }}" class="myp-b" onclick="return confirm('Вы уверены, что хотите удалить этот пост?');">Удалить</a>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+            {% for q in quiz %}
+
+                <div class="post quizes">
+                    
+                    <div class="posttype">Опрос</div>
+
+                    <div class="postname"><h3>{{ q[2] }}</h3></div>
+
+                        <hr>
+
+                        <div class="postrequied">
+                            <p class="posttype">Подпись к опросу</p>
+                            <p>{{ q[3] }}</p>
+                        </div>
+
+                        <hr>
+
+                        <div class="postrequied">
+                            <p class="posttype">Ссылка на опрос</p>
+                            <a href="{{ q[7] }}" class="quiz-hr">Перейти к опросу</a>
+                        </div>
+
+                        <hr>
+
+                        <div class="postauthor">{{ q[1] }} {{ q[0] }}</div>
+
+                        <div class="postcontacts">
+                            <p class="posttype">Контакты</p>
+
+                            <div class="email">
+                                <i class="fas fa-envelope"></i>
+                                {{ q[6] }}
+                            </div>
+
+                            <!-- <a href="{{ q[4] }}" class="posthref">
+                                <i class="fab fa-vk"></i>
+                            </a> -->
+                            <div class="email">
+                                <i class="fab fa-vk"></i>
+                                {{ q[4] }}
+                            </div> 
+                            <!-- <a href="{{ q[5] }}">
+                                <i class="fab fa-telegram-plane"></i>
+                            </a> -->
+
+                            <div class="email">
+                                <i class="fab fa-telegram-plane"></i>
+                                {{ q[5] }}
+                            </div>
+
+                        </div>
+
+                        <div class="b">
+                            <a href="/update/quiz/{{ q[8] }}" class="myp-b">Редактировать</a>
+                            
+                            <a href="/delete/{{ q[8] }}" class="myp-b" onclick="return confirm('Вы уверены, что хотите удалить этот пост?');">Удалить</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+            {% for i in idea %}
+                <div class="post ideas">
+
+                    <div class="posttype">Идея</div>
+                    <div class="posttype">{{ i[3] }}</div>
+
+                    <div class="postname"><h3>{{ i[5] }}</h3></div>
+
+                    <hr>
+
+                    <div class="postrequied">
+                        <p class="posttype">Описание идеи</p>
+                        <p>{{ i[6] }}</p>
+                    </div>
+
+                    <div class="b">
+                        <a href="/update/idea/{{ i[10] }}" class="myp-b">Редактировать</a>
+
+                        <a href="/delete/{{ i[10] }}" class="myp-b" onclick="return confirm('Вы уверены, что хотите удалить этот пост?');">Удалить</a>
+                    </div>
+
+                </div>
+            {% endfor %}
+            
+        </section>
+
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ХелпИВР</title>
+        <link rel="shortcut icon" href="/static/img/c.png" type="image/x-icon">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <!-- <link rel="stylesheet" href="/static/css/try.css">
+        <link rel="stylesheet" href="/static/css/nav.css"> -->
+        <link rel="stylesheet" href="/static/css/login.css">
+        <link href="https://fonts.googleapis.com/css2?family=Days+One&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css..">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;900&display=swap" rel="stylesheet">
+    </head>
+<body>
+    <div class="container">
+        <div class="forms-container">
+            <div class="signin-signup">
+                <form action="" class="sign-in-form" method="post" name="LoginForm">
+                    <h2 class="title">Войдите</h2>
+
+                    {% if message == 'Неправильный логин или пароль' %}
+                    <div class="warning-field">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <p>
+                            {{ message }}
+                        </p>
+                    </div>
+                    {% endif %}
+
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" name="nickname" placeholder="Логин">
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="password" placeholder="Пароль">
+                    </div>
+
+                    <input type="submit" value="Войти" name="btn" class="btn solid b-enter" onclick="return validateLoginForm()">
+
+                    <a href="/get_info" class="social-text">Забыли логин или пароль?</a>
+                    <!-- <p class="social-text"><a href="#">Забыли пароль или никнейм?</a></p> -->
+                    <!-- <div class="social-media">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-vk"></i>
+                        </a>
+                    </div> -->
+                </form>
+
+                <form action="" class="sign-up-form" method="post" name="RegForm">
+                    <h2 class="title">Регистрация</h2>
+
+                    {% if message == 'Имя пользователя уже занято' or message == 'Почта уже занята' %}
+                        <div class="warning-field">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <p>
+                                {{ message }}
+                            </p>
+                        </div>
+                    {% endif %}
+
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" name="nickname" placeholder="Логин">
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="text" name="email" placeholder="Почта">
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fas fa-user-circle"></i>
+                        <input type="text" name="name" placeholder="Имя">
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fas fa-user-circle"></i>
+                        <input type="text" name="surname" placeholder="Фамилия">
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fas fa-address-book"></i>
+                        <input type="text" name="group" placeholder="Группа, например 9Ф4">
+                    </div>
+                    <!-- <select class="select">
+                        <option>10B4</option>
+                        <option>10J4</option>
+                        <option>10j5</option>
+                        <option>11J4</option>
+                      </select> -->
+
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="password" placeholder="Пароль">
+                    </div>
+
+                    <input type="submit" value="Зарегистрироваться" name="btn" class="btn solid b-enter" onclick="return validateRegForm()">
+
+                    <!-- <p class="social-text">Или зарегистрируйтесь с помощью</p>
+                    <div class="social-media">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-vk"></i>
+                        </a>
+                    </div> -->
+                </form>
+            </div>
+        </div>
+
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>Еще нет аккаунта?</h3>
+                    <!-- <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                        Fugiat provident totam mollitia</p> -->
+                        <p>Вы можете зарегистрироваться прямо сейчас!</p>
+                    <button class="btn transparent" id="sign-up-btn">Зарегистрироваться</button>
+                </div>
+
+                <img src="/static/img/a.svg" class="image" alt="">
+            </div>
+
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>Уже есть аккаунт?</h3>
+                    <!-- <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                        Fugiat provident totam mollitia!</p> -->
+                        <p>Войдите прямо сейчас!</p>
+                    <button class="btn transparent" id="sign-in-btn">Войти</button>
+                </div>
+
+                <img src="/static/img/l.svg" class="image" alt="">
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/sign.js"></script>
+    <script type="text/javascript">
+        function validateLoginForm() {
+          var nickname = document.forms["LoginForm"]["nickname"].value;
+          var password = document.forms["LoginForm"]["password"].value;
+          if (nickname == null || nickname == "" || password == null || password == "") {
+            alert("Пожалуйста, заполните все поля");
+            return false;
+          }
+        }
+        function validateRegForm() {
+          var nickname = document.forms["RegForm"]["nickname"].value;
+          var email = document.forms["RegForm"]["email"].value;
+          var name = document.forms["RegForm"]["name"].value;
+          var surname = document.forms["RegForm"]["surname"].value;
+          var group = document.forms["RegForm"]["group"].value;
+          var password = document.forms["RegForm"]["password"].value;
+          if (nickname == null || nickname == "" || email == null || email == "" || name == null || name == "" ||
+          surname == null || surname == "" || group == null || group == "" || password == null || password == "") {
+              alert("Пожалуйста, заполните все поля");
+              return false;
+          }
+          if (!validateEmail(email)) {
+              alert("Пожалуйста, введите корректную почту");
+              return false;
+          }
+        }
+        
+        function validateEmail(email) {
+            const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        }
+
+        // function validate() {
+        //     // const $result = $("#result");
+        //     const email = $("#email").val();
+        //     $result.text("");
+
+        //     if (!validateEmail(email)) {
+        //         alert("Пожалуйста, введите корректную почту");
+        //         return false;
+        //         // $result.text(email + " is valid :)");
+        //         // $result.css("color", "green");
+        //     }
+        //     // } else {
+        //     //     alert("");
+        //     //     return false;
+        //     // }
+        //     return false;
+        // }
+
+        // $("#sign-up-btn").on("click", validate);
+    </script>
+</body>
+</html>

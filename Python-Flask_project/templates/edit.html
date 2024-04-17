@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ХелпИВР</title>
+    <link rel="shortcut icon" href="/static/img/c.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/static/css/nav.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css..">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Days+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h3 class="h-back"><a href="/" class="hr-back"><i class="fas fa-arrow-circle-left"></i> Вернуться на главную страницу</a></h3>
+
+    <form action="" method="post" name="Form">
+        <h3 class="ver">Мои данные</h3>
+        {% if message != "" %}
+            <div class="warning-field">
+                <i class="fas fa-exclamation-circle"></i>
+                <p>
+                    {{ message }}
+                </p>
+            </div>
+        {% endif %}
+        <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" name="nickname" placeholder="Логин" value="{{ user.user_nickname }}">
+        </div>
+
+        <div class="input-field">
+            <i class="fas fa-envelope"></i>
+            <input type="text" name="email" placeholder="Почта" value="{{ user.user_email }}">
+        </div>
+
+        <div class="input-field">
+            <i class="fas fa-user-circle"></i>
+            <input type="text" name="name" placeholder="Имя" value="{{ user.user_name }}">
+        </div>
+
+        <div class="input-field">
+            <i class="fas fa-user-circle"></i>
+            <input type="text" name="surname" placeholder="Фамилия" value="{{ user.user_surname }}">
+        </div>
+
+        <div class="input-field">
+            <i class="fas fa-address-book"></i>
+            <input type="text" name="group" placeholder="Группа, например 9Ф4" value="{{ user.user_group }}">
+        </div>
+
+        <div class="input-field">
+            <i class="fab fa-vk"></i>
+            <input type="text" name="href_vk" placeholder="id аккаунта ВКонтакте (по умолч. -)" value="{{ user.href_vk }}">
+        </div>
+
+        <div class="input-field">
+            <i class="fab fa-telegram-plane"></i>
+            <input type="text" name="href_telegram" placeholder="id аккаунта Telegram (по умолч. -)" value="{{ user.href_telegram }}">
+        </div>
+
+        <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="text" name="password" placeholder="Новый пароль (необязательно)">
+        </div>
+        <input type="submit" value="Сохранить данные" name="btn" class="btn transparent" onclick="return validateForm()">
+    </form>
+
+    <script type="text/javascript">
+        function validateForm() {
+          var nickname = document.forms["Form"]["nickname"].value;
+          var email = document.forms["Form"]["email"].value;
+          var name = document.forms["Form"]["name"].value;
+          var surname = document.forms["Form"]["surname"].value;
+          var group = document.forms["Form"]["group"].value;
+          if (nickname == null || nickname == "" || email == null || email == "" || name == null || name == "" ||
+          surname == null || surname == "" || group == null || group == "") {
+              alert("Пожалуйста, заполните все поля");
+              return false;
+          }
+          if (!validateEmail(email)) {
+              alert("Пожалуйста, введите корректную почту");
+              return false;
+          }
+        }
+        
+        function validateEmail(email) {
+            const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        }
+    </script>
+</body>
+</html>

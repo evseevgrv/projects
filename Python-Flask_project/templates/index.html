@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ХелпИВР</title>
+    <link rel="shortcut icon" href="/static/img/c.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/static/css/nav.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css..">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <div class="header_burger">
+            <span></span>
+        </div>
+
+        <div class="header_menu">
+            <div class="account-field mn">
+                <div class="us_icon"><i class="fas fa-user"></i></div>
+                    <div class="account-name">{{ surname }} {{ name }}</div>
+    
+                    <div class="account-links">
+                        <div class="account-more">
+                            <a href="/edit/{{ usid }}" class="logouth tl"><i class="fas fa-address-book"></i> Мои данные</a>
+                        </div>
+                        <div class="account-logout">
+                            <a href="/dropsession" class="logouth"><i class="fas fa-sign-out-alt"></i> Выйти</a>
+                        </div>
+                    </div>
+    
+            </div>
+            {% if check_email == 0 %}
+                <div class="account-field wr">
+                    <div class="us_icon"><i class="fas fa-exclamation-circle"></i></div>
+                    <div class="account-name">Подтвердите почту</div>
+                    <p class="account-text">Вам на почту было отправлено письмо (<a href="/get_confirm/{{ usid }}">Отправить ещё раз</a>)</p>
+                </div>
+            {% endif %}
+            <div class="actions">
+                <div class="opt">
+                    <a href="/myposts" class="op myposts"><i class="far fa-list-alt"></i> Мои посты</a>
+
+                    <div class="options">
+                        <a href="/add_post" class="op f"><span><i class="fas fa-edit"></i> Предложение</span></a>
+                        <a href="/add_vacancy" class="op"><i class="fas fa-address-card"></i> Резюме</a>
+                        <a href="/add_quiz" class="op"><i class="fas fa-file-alt"></i> Опрос</a>
+                        <a href="/add_idea" class="op l"><i class="fas fa-lightbulb"></i> Идея</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="select-box">
+            <div class="options-container op1">
+                <div class="option opt1 type" onclick="change_type ('Все объявления')" data-filter="all"
+                    <input type="radio" class="radio" name="category" />
+                    <label>Все объявления</label>
+                </div>
+
+                <div class="option opt1 type" onclick="change_type ('Предложения')" data-filter="forme">
+                    <input type="radio" class="radio" name="category" />
+                    <label>Предложения</label>
+                </div>
+
+                <div class="option opt1 type" onclick="change_type ('Резюме')" data-filter="me">
+                    <input type="radio" class="radio" name="category" />
+                    <label>Резюме</label>
+                </div>
+
+                <div class="option opt1 type" onclick="change_type ('Опросы')" data-filter="quizes">
+                    <input type="radio" class="radio" name="category" />
+                    <label>Опросы</label>
+                </div>
+
+                <div class="option opt1 type" onclick="change_type ('Идеи')" data-filter="ideas">
+                    <input type="radio" class="radio" name="category" />
+                    <label>Идеи</label>
+                </div>
+            </div>
+            <div class="selected s1 type_box" id="type">
+                <b class="type_name">Все объявления</b>
+            </div>
+        </div>
+
+    </div>
+    <div class="left">
+        <div class="account-field mn">
+            <div class="us_icon"><i class="fas fa-user"></i></div>
+            <div class="account-name">{{ surname }} {{ name }}</div>
+            <!-- <div class="account-name">Евсеев Григорий</div> -->
+            <div class="account-links">
+                <div class="account-more">
+                    <a href="/edit/{{ usid }}" class="logouth tl"><i class="fas fa-address-book"></i> Мои данные</a>
+                </div>
+                <!-- <div class="account-logout">
+                    <a href="/dropsession" class="logouth tl"><i class="fas fa-address-book"></i> Редактировать</a>
+                </div> -->
+                <div class="account-logout">
+                    <a href="/dropsession" class="logouth tr"><i class="fas fa-sign-out-alt"></i> Выйти</a>
+                </div>
+            </div>
+
+        </div>
+
+        {% if check_email == 0 %}
+            <div class="account-field wr">
+                <div class="us_icon"><i class="fas fa-exclamation-circle"></i></div>
+                <div class="account-name">Подтвердите почту</div>
+                <p class="account-text">Вам на почту было отправлено письмо (<a href="/get_confirm/{{ usid }}">Отправить ещё раз</a>)</p>
+            </div>
+        {% endif %}
+        <a href="/myposts" class="op myposts"><i class="far fa-list-alt"></i> Мои посты</a>
+
+        <div class="actions">
+            <div class="opt">
+                <div class="options">
+                    <a href="/add_post" class="op f"><span><i class="fas fa-edit"></i> Предложение</span></a>
+                    <a href="/add_vacancy" class="op"><i class="fas fa-address-card"></i> Резюме</a>
+                    <a href="/add_quiz" class="op"><i class="fas fa-file-alt"></i> Опрос</a>
+                    <a href="/add_idea" class="op l"><i class="fas fa-lightbulb"></i> Идея</a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="right">
+
+        <div class="menu">
+
+            <ul class="types">
+
+                <li class="type active" data-filter="all">
+                    <p class="custom-underline">Все объявления</p>
+                </li>
+
+                <li class="type" data-filter="forme">
+                    <p class="custom-underline">Предложения</p>
+                </li>
+
+                <li class="type" data-filter="me">
+                    <p class="custom-underline">Резюме</p>
+                </li>
+
+                <li class="type" data-filter="quizes">
+                    <p class="custom-underline">Опросы</p>
+                </li>
+
+                <li class="type" data-filter="ideas">
+                    <p class="custom-underline">Идеи</p>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- <div class="content"> -->
+
+            <section class="posts">
+
+                {% for p in post %}
+
+                    <div class="post forme">
+                        <div class="posttype">Предложение</div>
+
+                        <div class="posttype">{{ p[2] }} {{ p[3] }}</div>
+
+                        <div class="postname"><h3>{{ p[5] }}</h3></div>
+
+                        <hr>
+
+                        <div class="postrequied">
+                            <p class="posttype">Сфера задачи</p>
+                            <p>{{ p[4] }}</p>
+                        </div>
+
+                        <hr>
+
+                        <div class="postrequied">
+                            <p class="posttype">Описание задачи</p>
+                            <p>{{ p[7] }}</p>
+                        </div>
+
+                        <hr>
+
+                        <div class="postpurpose">
+                            <p class="posttype">Требования</p>
+                            {{ p[6] }}
+                        </div>
+
+                        <hr>
+
+                        <div class="postauthor">{{ p[1] }} {{ p[0] }}</div>
+
+                        <div class="postcontacts">
+                            <p class="posttype">Контакты</p>
+
+                            <div class="email">
+                                <i class="fas fa-envelope"></i>
+                                {{ p[10] }}
+                            </div>
+                            
+                            <!-- <a href="{{ p[8] }}" class="posthref">
+                                <i class="fab fa-vk"></i>
+                            </a> -->
+                            <div class="email">
+                                <i class="fab fa-vk"></i>
+                                {{ p[8] }}
+                            </div> 
+
+                            <!-- <a href="{{ p[10] }}">
+                                <i class="fab fa-telegram-plane"></i>
+                            </a> -->
+                            
+                            <div class="email">
+                                <i class="fab fa-telegram-plane"></i>
+                                {{ p[9] }}
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+                {% for v in vacancy %}
+                    
+                    <div class="post me">
+                        
+                        <div class="posttype">Резюме</div>
+
+                        <div class="postname"><h3>{{ v[2] }}</h3></div>
+                        <hr>
+                        <div class="postrequied">
+                            <p class="posttype">Описание способностей</p>
+                            <p>{{ v[3] }}</p>
+                        </div>
+                        <hr>
+                        <div class="postauthor">{{ v[1] }} {{ v[0] }}</div>
+                        <div class="postcontacts">
+                            <p class="posttype">Контакты</p>
+
+                            <div class="email">
+                                <i class="fas fa-envelope"></i>
+                                {{ v[6] }}
+                            </div>
+
+                            <!-- <a href="{{ v[4] }}" class="posthref">
+                                <i class="fab fa-vk"></i>
+                            </a> -->
+                            <div class="email">
+                                <i class="fab fa-vk"></i>
+                                {{ v[4] }}
+                            </div> 
+
+                            <div class="email">
+                                <i class="fab fa-telegram-plane"></i>
+                                {{ v[5] }}
+                            </div>
+
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+                {% for q in quiz %}
+
+                    <div class="post quizes">
+                        
+                        <div class="posttype">Опрос</div>
+
+                        <div class="postname"><h3>{{ q[2] }}</h3></div>
+
+                        <hr>
+
+                        <div class="postrequied">
+                            <p class="posttype">Подпись к опросу</p>
+                            <p>{{ q[3] }}</p>
+                        </div>
+
+                        <hr>
+
+                        <div class="postrequied">
+                            <p class="posttype">Ссылка на опрос</p>
+                            <a href="{{ q[7] }}" class="quiz-hr">Перейти к опросу</a>
+                            <!-- <p>{{ q[7] }}</p> -->
+                        </div>
+
+                        <hr>
+
+                        <div class="postauthor">{{ q[1] }} {{ q[0] }}</div>
+
+                        <div class="postcontacts">
+                            <p class="posttype">Контакты</p>
+
+                            <div class="email">
+                                <i class="fas fa-envelope"></i>
+                                {{ q[6] }}
+                            </div>
+
+                            <!-- <a href="{{ q[4] }}" class="posthref">
+                                <i class="fab fa-vk"></i>
+                            </a> -->
+                            <div class="email">
+                                <i class="fab fa-vk"></i>
+                                {{ q[4] }}
+                            </div> 
+                            <!-- <a href="{{ q[5] }}">
+                                <i class="fab fa-telegram-plane"></i>
+                            </a> -->
+
+                            <div class="email">
+                                <i class="fab fa-telegram-plane"></i>
+                                {{ q[5] }}
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+                {% for i in idea %}
+                    <div class="post ideas">
+                        
+                        <div class="posttype">Идея</div>
+
+                        <div class="posttype">{{ i[1] }}</div>
+                        <div class="postname"><h3>{{ i[2] }}</h3></div>
+
+                        <hr>
+
+                        <div class="postrequied">
+                            <p class="posttype">Описание идеи</p>
+                            <p>{{ i[3] }}</p>
+                        </div>
+
+                    </div>
+                {% endfor %}
+                
+            </section>
+
+        <!-- </div> -->
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    // const choose = document.querySelector(".mopt");
+    // const optionsContainer = document.querySelector(".options");
+
+    // choose.addEventListener("click", () => {
+    //     optionsContainer.classList.toggle("active");
+    // });
+
+    $(document).ready(function () {
+        $('.type').click(function () {
+            $(".type").removeClass("active");
+            this.classList.add("active");
+            const value = $(this).attr('data-filter');
+            if (value == 'all') {
+                $('.post').show('1000');
+            }
+            else {
+                $('.post').not('.' + value).hide('1000');
+                $('.post').filter('.' + value).show('1000');
+            }
+        })
+    })
+
+    $(document).ready(function () {
+        $('.header_burger').click(function (event) {
+            $('.header_burger, .header_menu, .select-box').toggleClass('active');
+            $('body').toggleClass('lock');
+        });
+    });
+
+    const selected1 = document.querySelector(".s1");
+    const optionsContainer1 = document.querySelector(".op1");
+    const optionsList1 = document.querySelectorAll(".opt1");
+    const type_name = document.querySelector(".type_name");
+
+    selected1.addEventListener("click", () => {
+        optionsContainer1.classList.toggle("active");
+    });
+
+    optionsList1.forEach(o => {
+        o.addEventListener("click", () => {
+            type_name.innerHTML = o.querySelector("label").innerHTML;
+            optionsContainer1.classList.remove("active");
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ХелпИВР</title>
+    <link rel="shortcut icon" href="/static/img/c.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/static/css/try.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="/static/css/create_post.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css..">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- <a href="#" class="dob">ХелпИВР</a> -->
+    <!-- <nav class="nav">
+
+        <div class="account-field">
+            <div class="account-photo"></div>
+            <div class="account-name">Евсеев Григорий</div>
+            <div class="links">
+                <div class="account-more"><a href="#">Подробнее</a></div>
+                <div class="account-logout"><a href="#">Выйти</a></div>
+            </div>
+        </div>
+
+    </nav> -->
+    <h3 class="h-back"><a href="/" class="hr-back"><i class="fas fa-arrow-circle-left"></i> Вернуться на главную страницу</a></h3>
+    
+    <form action="" method="post" name="Form">
+        <div class="create-field">
+            <h2>Добавить предложение</h2>
+            <div class="cnt">
+                <select id="" class="prtype" name="type">
+                    <option selected>Тип ИВР</option>
+                    <option value="Проект">Проект</option>
+                    <option value="Исследование">Исследование</option>
+                </select>
+            </div>
+            
+            <!-- <div class="cnt">
+                <select id="" class="prsub" name="subject">
+                    <option selected>Предмет ИВР</option>
+                    <option value="IT">ИТ</option>
+                    <option value="Образование">Образование</option>
+                </select>
+            </div> -->
+
+            <div class="cnt">
+                <input type="text" name="subject" placeholder="Сфера ИВР">
+            </div>
+
+            <div class="cnt">
+                <!-- <select id="" class="probtype" name="problemtype"> 
+                    <option selected>Сфера задачи</option>
+                    <option value="">Дизайн</option>
+                    <option value="">Написание кода</option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                </select> -->
+                <input type="text" name="problemtype" placeholder="Сфера задачи, например, написание кода">
+            </div>
+
+            <div class="cnt">
+                <input type="text" name="name" placeholder="Название">
+            </div>
+
+            <div class="cnt">
+                <textarea name="demands" placeholder="Требования (что должен уметь делать ваш партнер)" id="" cols="40" rows="2"></textarea>
+            </div>
+            
+            <div class="cnt">
+                <textarea name="description" placeholder="Описание задачи" id="" cols="40" rows="10"></textarea>
+            </div>
+            
+            <div class="cnt">
+                <i class="fab fa-vk"></i>
+                <input type="text" placeholder="id аккаунта ВКонтакте (необязательно)"  name="href_vk" value="{{ href_vk }}">
+            </div>
+
+            <div class="cnt">
+                <i class="fab fa-telegram-plane"></i>
+                <input type="text" placeholder="id аккаунта Telegram (необязательно)" name="href_telegram" value="{{ href_telegram }}">
+            </div>
+
+            <div class="cnt">
+                <i class="fas fa-at"></i>
+                <input type="text" placeholder="аккаунт Gmail" name="href_google" value="{{ email }}">
+            </div>
+
+            
+            <div class="submit">
+                <input type="submit" value="Добавить" name="btn" class="btn solid b-enter" onclick="return validateForm()">
+            </div>
+        </div>
+    </form>
+
+    <!-- <div class="image">
+        <img src="/static/img/post.svg" alt="post-pic">
+    </div> -->
+    <script type="text/javascript">
+        function validateForm() {
+          var type = document.forms["Form"]["type"].value;
+          var subject = document.forms["Form"]["subject"].value;
+          var problemtype = document.forms["Form"]["problemtype"].value;
+          var name = document.forms["Form"]["name"].value;
+          var demands = document.forms["Form"]["demands"].value;
+          var description = document.forms["Form"]["description"].value;
+          var href_google = document.forms["Form"]["href_google"].value;
+          if (type == "Тип ИВР" || subject == null || subject == "" || problemtype == null || problemtype == "" || name == null || name == "" || 
+                demands == null || demands == "" || description == null || description == "" || href_google == null || href_google == "") {
+            alert("Пожалуйста, заполните все поля");
+            return false;
+          }
+          if (!validateEmail(href_google)) {
+              alert("Пожалуйста, введите корректную почту");
+              return false;
+          }
+        }
+        
+        function validateEmail(email) {
+            const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        }
+    </script>
+      
+</body>
+</html> 

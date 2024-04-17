@@ -1,0 +1,355 @@
+@font-face {
+  font-family: TT Commons; /* Гарнитура шрифта */
+  src: url(/static/fonts/TTCommons-Black.ttf); /* Путь к файлу со шрифтом */
+}
+
+@font-face {
+  font-family: Dobro; /* Гарнитура шрифта */
+  src: url(/static/fonts/FontOfKindness2.0-Bold.otf); /* Путь к файлу со шрифтом */
+}
+
+@font-face {
+  font-family: Days One; /* Гарнитура шрифта */
+  src: url(/static/fonts/DaysOne-Regular.ttf); /* Путь к файлу со шрифтом */
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f5ba3d;
+}
+
+hr {
+  margin: 10px 2px;
+  color: rgba(125, 125, 125, 0.05);
+}
+
+.page {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.left {
+  width: 20%;
+  height: 100%;
+
+  background: #fff;
+
+  position: fixed;
+  box-shadow: 15px 10px 15px rgba(0, 0, 0, 0.15);
+}
+
+.right {
+  width: 80%;
+  margin-left: 20%;
+}
+
+.msep {
+  background: rgba(125, 125, 125, 0.25);
+  height: 2px;
+  width: 95%;
+  margin: 1em 0;
+  box-shadow: 0 5px 10px rgba(125, 125, 125, 0.25);
+}
+
+.logo img {
+  width: 100%;
+}
+
+.dob {
+  text-align: center;
+}
+
+.dob a {
+  display: flex;
+  background-color: #fff;
+  text-align: center;
+  font-family: "Dobro";
+  font-size: 300%;
+  text-decoration: none;
+  color: #000;
+  margin: 0 auto;
+}
+
+.nav {
+  height: 4.5em;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 1);
+  display: flex;
+  position: fixed;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
+}
+
+.types {
+  font-family: "TT Commons", sans-serif;
+  font-weight: 700;
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin: 0;
+}
+
+.type {
+  position: relative;
+  list-style: none;
+  cursor: pointer;
+  padding: 10px;
+  height: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 10px 10px 0 0;
+  transition: all 0.3s;
+  color: #333;
+  margin-right: 5%;
+}
+
+.dif .c {
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.us_icon {
+  float: left;
+}
+
+.v {
+  margin-top: 3em;
+  width: 100%;
+}
+
+.c {
+  font-size: 125%;
+  background: #fff;
+  color: #333;
+  padding: 10px;
+  width: 100%;
+  font-family: "TT Commons";
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.op:hover {
+  background: #f5ba3d;
+}
+
+.h {
+  font-family: "TT Commons";
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 140%;
+  background: #fff;
+  color: #333;
+  margin-bottom: 15px;
+  margin-left: 5px;
+}
+
+.options {
+  display: block;
+  background: #eee;
+  border-radius: 10px;
+  transition: all 0.4s;
+
+  width: 90%;
+  box-shadow: -5px 10px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.f {
+  border-radius: 10px 10px 0 0;
+  margin-top: 1em;
+}
+
+.l {
+  border-radius: 0 0 10px 10px;
+}
+
+.options.active {
+  display: block;
+}
+
+.op {
+  font-size: 125%;
+  display: block;
+  padding: 10px;
+  color: #333;
+  font-family: "TT Commons";
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-left: 2em;
+  margin: 1em;
+  color: #fff;
+  font-size: 150%;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #fff;
+}
+
+.separator::before {
+  margin-right: 0.25em;
+}
+
+.separator::after {
+  margin-left: 0.25em;
+}
+
+.postcontacts a {
+  font-family: "TT Commons";
+  font-weight: bold;
+  font-size: 1.5em;
+  text-decoration: none;
+  color: #333;
+  padding: 2px;
+  border-radius: 5px;
+}
+
+.postcontacts a:hover {
+  color: #f5ba3d;
+}
+
+.account-field {
+  background: #eee;
+  color: #333;
+  padding: 10px;
+  height: auto;
+
+  display: block;
+  border-radius: 10px;
+  transition: all 0.4s;
+
+  width: 90%;
+  box-shadow: -5px 10px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.account-photo {
+  height: 3em;
+  width: 3em;
+  border-radius: 5px;
+  background: #fff;
+  float: left;
+  margin-right: 1em;
+}
+
+.account-name {
+  margin: 0 20px;
+  color: #000;
+}
+
+.links {
+  display: flex;
+}
+
+.account-logout {
+  margin-left: 1em;
+}
+
+.posts {
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.post {
+  margin: 1em;
+  background: #fff;
+  width: 30%;
+  height: 40%;
+  padding: 2em;
+  border-radius: 10px;
+}
+
+.posttype {
+  text-align: center;
+  width: 25%;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: rgba(63, 124, 191, 0.25);
+  color: #3f7cbf;
+  margin-top: -0.5em;
+}
+
+.postname {
+  text-align: center;
+  font-weight: bold;
+}
+
+.btn-answ {
+  width: 100%;
+  padding: 10px;
+  margin-top: 1em;
+  text-align: center;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  background: rgba(124, 165, 82, 0.25);
+  cursor: pointer;
+}
+
+.btn-answ a {
+  text-decoration: none;
+  color: #7ca653;
+}
+
+.footer {
+  height: 100%;
+  background-color: #fff;
+}
+
+.footer img {
+  width: 10%;
+  margin: 2.5em;
+}
+
+@media (max-width: 2500px) {
+  .post {
+    width: 45%;
+  }
+}
+
+@media (max-width: 570px) {
+  .nav {
+    display: none;
+  }
+
+  .left {
+    display: none;
+  }
+
+  .right {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .post {
+    width: 90%;
+  }
+}

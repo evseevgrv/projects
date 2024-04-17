@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ХелпИВР</title>
+    <link rel="shortcut icon" href="/static/img/c.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/static/css/try.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="/static/css/create_post.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css..">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- <a href="#" class="dob">ХелпИВР</a> -->
+    <!-- <nav class="nav">
+
+        <div class="account-field">
+            <div class="account-photo"></div>
+            <div class="account-name">Евсеев Григорий</div>
+            <div class="links">
+                <div class="account-more"><a href="#">Подробнее</a></div>
+                <div class="account-logout"><a href="#">Выйти</a></div>
+            </div>
+        </div>
+
+    </nav> -->
+    <h3 class="h-back"><a href="/" class="hr-back"><i class="fas fa-arrow-circle-left"></i> Вернуться на главную страницу</a></h3>
+    
+    <form action="" method="post" name="Form">
+        <div class="create-field">
+            <h2>Добавить идею</h2>
+
+            <!-- <div class="cnt">
+                <select name="Тип ИВР" id="" class="prtype" name="type">
+                    <option selected>Тип ИВР</option>
+                    <option value="Проект">Проект</option>
+                    <option value="Исследование">Исследование</option>
+                </select>
+            </div> -->
+            
+           <!-- <div class="cnt">
+                <select id="" class="prsub" name="subject">
+                    <option selected>Предмет ИВР</option>
+                    <option value="IT">ИТ</option>
+                    <option value="Образование">Образование</option>
+                </select>
+            </div> -->
+
+            <div class="cnt">
+                <input type="text" name="subject" placeholder="Сфера ИВР">
+            </div>
+
+            
+            <!-- <div class="cnt">
+                <select name="Вид задачи" id="" class="probtype" name="problemtype"> 
+                    <option selected>Сфера задачи</option>
+                    <option value="Дизайн">Дизайн</option>
+                    <option value="Написание кода">Написание кода</option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                </select>
+            </div> -->
+
+            <div class="cnt">
+                <input type="text" name="name" placeholder="Название">
+            </div>
+
+            <div class="cnt">
+                <textarea name="description" placeholder="Описание идеи" id="" cols="40" rows="2"></textarea>
+            </div>
+            
+            
+            <div class="submit">
+                <input type="submit" value="Добавить" name="btn" class="btn solid b-enter" onclick="return validateForm()">
+            </div>
+        </div>
+    </form>
+    
+    <!-- <div class="image">
+        <img src="/static/img/idea.svg" alt="idea-pic">
+    </div> -->
+    <script type="text/javascript">
+        function validateForm() {
+          var type = document.forms["Form"]["type"].value;
+          var subject = document.forms["Form"]["subject"].value;
+          var name = document.forms["Form"]["name"].value;
+          var description = document.forms["Form"]["description"].value;
+          if (type == "Тип ИВР" || subject == null || subject == "" || name == null || name == "" || 
+                description == null || description == "") {
+            alert("Пожалуйста, заполните все поля");
+            return false;
+          }
+        }
+    </script>
+</body>
+</html> 
